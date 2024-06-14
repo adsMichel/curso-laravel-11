@@ -1,39 +1,35 @@
-@extends('admin.layouts.app')
+<!DOCTYPE html>
+<html lang="pt-br">
 
-@section('title', 'Listagem dos Usuários')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listar Usuários</title>
+</head>
 
-@section('content')
+<body>
     <h1>Usuários</h1>
-
-    <a href="{{ route('users.create') }}">Novo</a>
-
-    <x-alert/>
-
     <table>
-        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+        </tr>
+        @forelse ($users as $user)
             <tr>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Ações</th>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>
+                    <a href="">Editar</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @forelse ($users as $user)
-                <tr>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>
-                        <a href="{{ route('users.edit', $user->id) }}">Edit</a>
-                        <a href="{{ route('users.show', $user->id) }}">Detalhes</a>
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="100">Nenhum usuário no banco</td>
-                </tr>
-            @endforelse
-        </tbody>
+        @empty
+            <p>Não há usuários</p>
+        @endforelse
     </table>
 
     {{ $users->links() }}
-@endsection
+</body>
+
+</html>
