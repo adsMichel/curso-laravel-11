@@ -17,6 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+     // Esse fillable indica quais campos na tabela podem receber dados
     protected $fillable = [
         'name',
         'email',
