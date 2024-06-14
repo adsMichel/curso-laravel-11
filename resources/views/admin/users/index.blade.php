@@ -1,37 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+@extends('admin.layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Listar Usuários</title>
-</head>
+@section('title', 'Listagem dos Usuários')
 
-<body>
-    <h1>Usuários</h1>
-    <a href="{{ route('users.create') }}">Novo</a>
+@section('content')
+<h1>Usuários</h1>
+<a href="{{ route('users.create') }}">Novo</a>
 
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Ações</th>
-        </tr>
-        @forelse ($users as $user)
-            <tr>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>
-                    <a href="">Editar</a>
-                </td>
-            </tr>
-        @empty
-            <p>Não há usuários</p>
-        @endforelse
-    </table>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Ações</th>
+    </tr>
+    @forelse ($users as $user)
+    <tr>
+        <td>{{ $user->name }}</td>
+        <td>{{ $user->email }}</td>
+        <td><a href="">Editar</a></td>
+    </tr>
+    @empty
+    <p>Não há usuários</p>
+    @endforelse
+</table>
 
-    {{ $users->links() }}
-</body>
+{{ $users->links() }}
 
-</html>
+@endsection
