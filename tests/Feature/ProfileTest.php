@@ -64,6 +64,7 @@ test('user can delete their account', function () {
         ->assertRedirect('/');
 
     $this->assertGuest();
+    // $this->assertNotNull($user->deleted_at);
     $this->assertNull($user->fresh());
 });
 
