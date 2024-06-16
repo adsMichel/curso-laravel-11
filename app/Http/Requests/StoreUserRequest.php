@@ -23,17 +23,16 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:255',
+            'name' => 'required|string|min:3|max:255', // aula 10 validação
             'email' => [
                 'required',
                 'email',
-                // 'unique:users,email',
-                Rule::unique('users', 'email')->ignore($this->user, 'id')
+                'unique:users,email',
             ],
             'password' => [
                 'required',
-                'min:6',
-                'max:20',
+                'min:3',
+                'max:20'
             ]
         ];
     }

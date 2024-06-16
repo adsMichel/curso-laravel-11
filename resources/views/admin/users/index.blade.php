@@ -4,7 +4,15 @@
 
 @section('content')
 <h1>Usuários</h1>
+
 <a href="{{ route('users.create') }}">Novo</a>
+
+<div class="text-warning">
+    @if (session()->has('success'))
+        {{ session('success') }}
+    @endif
+</div>
+
 
 <table>
     <tr>
