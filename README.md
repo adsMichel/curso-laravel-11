@@ -1,6 +1,6 @@
 
 # Curso de Laravel 11
-### APILayer APIs
+### Resumos das aulas
 | API | Description | Call this API |
 |:---|:---|:---|
 | [Aula 01](https:///) | Locate and Identify Website Visitors by IP Address | [<img src="https://run.pstmn.io/button.svg" alt="Acessar" style="width: 128px; height: 32px;">](https://)|
